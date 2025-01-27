@@ -6,6 +6,7 @@ interface FABProperties {
     variant?: "link" | "default" | "destructive" | "outline" | "secondary" | "ghost" | null | undefined
     size?: "default" | "sm" | "lg" | "icon" | null | undefined
     icon: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>
+    onClick?: (event: any) => void
 }
 
 export default function FAB(props : FABProperties) {
@@ -15,7 +16,7 @@ export default function FAB(props : FABProperties) {
             right: '20px',
             bottom: '20px'
         }}>
-        <Button variant={props.variant} size={props.size}>
+        <Button variant={props.variant} size={props.size} onClick={props.onClick}>
             <props.icon />
         </Button>
         </div>
